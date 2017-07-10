@@ -22,4 +22,5 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
 while True:
+    ids = None
     print("Please input a product identifier, or 'DONE' if there are no more items: %") % input()
