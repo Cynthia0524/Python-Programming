@@ -1,4 +1,6 @@
 import code
+import time
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -21,6 +23,29 @@ products = [
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
+ids = []
 while True:
-    ids = None
-    print("Please input a product identifier, or 'DONE' if there are no more items: %") % input()
+    id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
+    if id == "DONE": break
+    ids.append(int(id))
+else: pass
+
+print("-------------------------------")
+print("MY GROCERY STORE")
+print("-------------------------------")
+print("Web: www.mystore.com")
+print("Phone: 1.123.456.7890")
+from time import strftime
+print("Checkout Time:  " + strftime("%Y-%m-%d %H:%M:%S"))
+print("-------------------------------")
+print("Shopping Cart Items: ")
+prices = []
+for id in ids:
+    print(" +",products[id-1]['name'],"($%.2f)" % products[id-1]['price'])
+    prices.append(products[id-1]['price'])
+print("-------------------------------")
+print("Subtotal: $%.2f" % sum(prices))
+print("Plus NYC Sales Tax "+"("+"8.875%"+")"+": $%.2f" % float(sum(prices)*0.08875))
+print("Total: $%.2f" % float(sum(prices)*1.08875))
+print("-------------------------------")
+print("Thank you for your business! Please come again.")

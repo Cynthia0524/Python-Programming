@@ -37,3 +37,22 @@ print("THERE ARE",len(uni_departments),"DEPARTMENTS:")
 for i in uni_departments:
   print("+","%s (%d products)" %(i.capitalize(),departments.count(i)))
 #code.interact(local=locals())
+
+####################################################################
+###Professor's Version
+
+##Products
+#products = sorted(products, key=operator.itemgetter("name"))
+
+#for product in products:
+#    price_usd = ' (${0:.2f})'.format(product["price"])
+#    print(price_usd)
+#    print(" + " + product["name"] + price_usd)
+
+##Departments
+#departments = []
+#for product in products:
+#    departments.append(product["department"])
+
+#departments = set(departments) #duplicate and get "set" type
+#departments = list(departments) #convert back to "list" type

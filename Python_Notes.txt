@@ -1,2 +1,8 @@
 type(2)
   # show the variable class
+strftime("%Y-%m-%d %H:%M:%S")
+  # Year-Month-Day Hour:Minute:Second
+eval()
+  # evaluate input
+imput("x: ")
+  # "x: " <-- input a number manually
