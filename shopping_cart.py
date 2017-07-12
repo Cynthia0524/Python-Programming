@@ -27,13 +27,14 @@ ids = []
 while True:
     id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
     if id == "DONE": break
-    ids.append(int(id))
-else: pass
+    elif eval(id) > len(products):print("We don't have so many products >_<")
+    elif eval(id) <= len(products): ids.append(int(id))
+else:pass
 
 print("-------------------------------")
-print("MY GROCERY STORE")
+print("BUYME Grocery")
 print("-------------------------------")
-print("Web: www.mystore.com")
+print("Web: www.buyme.com")
 print("Phone: 1.123.456.7890")
 from time import strftime
 print("Checkout Time:  " + strftime("%Y-%m-%d %H:%M:%S"))
@@ -48,4 +49,4 @@ print("Subtotal: $%.2f" % sum(prices))
 print("Plus NYC Sales Tax "+"("+"8.875%"+")"+": $%.2f" % float(sum(prices)*0.08875))
 print("Total: $%.2f" % float(sum(prices)*1.08875))
 print("-------------------------------")
-print("Thank you for your business! Please come again.")
+print("Thank you for your business! Welcome to BUYME again!")
