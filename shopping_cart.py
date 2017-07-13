@@ -23,21 +23,35 @@ products = [
     {"id":19, "name": "Gluten Free Quinoa Three Cheese & Mushroom Blend", "department": "dry goods pasta", "aisle": "grains rice dried goods", "price": 3.99},
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
+
+##input identifiers
+#when you input DONE, it will break
+#when you input a integer:
+#   if such id exits, recorded.
+#   if it is no more than 0, it is a wrong identifier, and will be warned
+#   if it is out of the exiting identifiers, it will tell you: no so many products
+#when you input "DONE" wrongly, such as "done" and other English letters, it will remind you of inputing "DONE"
 ids = []
 while True:
     id = input("Please input a product identifier, or 'DONE' if there are no more items: ")
     if id == "DONE": break
-    elif eval(id) > len(products):print("We don't have so many products >_<")
-    elif eval(id) <= len(products): ids.append(int(id))
-else:pass
+    elif id[0].capitalize() in ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']: print("Did you want to input DONE? Please try again!")
+    elif eval(id) > len(products): print("We don't have so many products >_<")
+    elif eval(id) <= len(products) and eval(id) > 0: ids.append(int(id))
+    elif eval(id) <= 0: print("Wrong identifier! Please try again!")
+    else:pass
 
+##print the receipt on computer
 print("-------------------------------")
 print("BUYME Grocery")
 print("-------------------------------")
 print("Web: www.buyme.com")
 print("Phone: 1.123.456.7890")
 from time import strftime
-print("Checkout Time:  " + strftime("%Y-%m-%d %H:%M:%S"))
+checkout_time = strftime("%Y-%m-%d %H:%M:%S")
+receipt_time = checkout_time.replace(" ","-")
+receipt_time = receipt_time.replace(":","-") + "-" + str(int(round(time.time() * 1000)))
+print("Checkout Time:  " + checkout_time)
 print("-------------------------------")
 print("Shopping Cart Items: ")
 prices = []
@@ -50,3 +64,43 @@ print("Plus NYC Sales Tax "+"("+"8.875%"+")"+": $%.2f" % float(sum(prices)*0.088
 print("Total: $%.2f" % float(sum(prices)*1.08875))
 print("-------------------------------")
 print("Thank you for your business! Welcome to BUYME again!")
+#professor's hint
+#product_ids = []
+
+#while True:
+#    product_id = input("Please input a valid product identifier:")
+#    if product_id == "DONE":
+#        print("THANKS ALL DONE HERE")
+#        break
+#    else:
+#        print("THE PRODUCT IDENTIFIER IS: " + str(product_id))
+#        product_ids.append(product_id)
+
+#print("OUTSIDE THE LOOP")
+#print(product_ids)
+
+
+##output the receipt to a text for printing purpose
+file_name = "/Users/cynthia/Desktop/python-practice/receipts/"+receipt_time+".txt"
+receipt = open(file_name,"w")
+receipt.write("-------------------------------\n")
+receipt.write("BUYME Grocery\n")
+receipt.write("-------------------------------\n")
+receipt.write("Web: www.buyme.com\n")
+receipt.write("Phone: 1.123.456.7890\n")
+receipt.write("Checkout Time:  " + checkout_time + "\n")
+receipt.write("-------------------------------\n")
+receipt.write("Shopping Cart Items: \n")
+
+for id in ids:
+    shopping = " + "+products[id-1]['name']+" ($%.2f) \n" % products[id-1]['price']
+    receipt.write(shopping)
+
+receipt.write("-------------------------------\n")
+receipt.write("Subtotal: $%.2f \n" % sum(prices))
+tax = "Plus NYC Sales Tax "+"("+"8.875%"+")"+": $%.2f \n" % float(sum(prices)*0.08875)
+receipt.write(tax)
+receipt.write("Total: $%.2f \n" % float(sum(prices)*1.08875))
+receipt.write("-------------------------------\n")
+receipt.write("Thank you for your business! Welcome to BUYME again!\n")
+receipt.close()

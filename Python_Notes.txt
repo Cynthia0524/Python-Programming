@@ -6,3 +6,10 @@ eval()
   # evaluate input
 imput("x: ")
   # "x: " <-- input a number manually
+var.title()
+  # Title format the variable
+[member for member in list if list["name"] == "name" ]
+  # Filtering process
+while True:
+  pass
+  # True represents a condition. When it is satisfied, the loop will continue

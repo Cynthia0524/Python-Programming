@@ -1,0 +1,19 @@
+-------------------------------
+BUYME Grocery
+-------------------------------
+Web: www.buyme.com
+Phone: 1.123.456.7890
+Checkout Time:  2017-07-12 20:48:42
+-------------------------------
+Shopping Cart Items: 
+ + Chocolate Sandwich Cookies ($3.50) 
+ + Cut Russet Potatoes Steam N' Mash ($4.25) 
+ + Mint Chocolate Flavored Syrup ($4.50) 
+ + Dry Nose Oil ($21.99) 
+ + Cut Russet Potatoes Steam N' Mash ($4.25) 
+-------------------------------
+Subtotal: $38.49 
+Plus NYC Sales Tax (8.875%): $3.42 
+Total: $41.91 
+-------------------------------
+Thank you for your business! Welcome to BUYME again!
