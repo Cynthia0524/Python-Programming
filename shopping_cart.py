@@ -82,7 +82,7 @@ print("Thank you for your business! Welcome to BUYME again!")
 
 ##output the receipt to a text for printing purpose
 #remember to change the file path!!!
-file_name = "/Users/cynthia/Desktop/python-practice/receipts/"+receipt_time+".txt"
+file_name = "/Users/cynthia/Desktop/Github/python-practice/shopping_cart_receipts/"+receipt_time+".txt"
 receipt = open(file_name,"w")
 receipt.write("-------------------------------\n")
 receipt.write("BUYME Grocery\n")
