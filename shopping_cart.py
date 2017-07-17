@@ -41,6 +41,10 @@ while True:
     elif eval(id) <= 0: print("Wrong identifier! Please try again!")
     else:pass
 
+def look_up_id(id):
+    match = [product for product in products if product["id"] == id]
+    return match[0]
+
 ##print the receipt on computer
 print("-------------------------------")
 print("BUYME Grocery")
@@ -56,7 +60,7 @@ print("-------------------------------")
 print("Shopping Cart Items: ")
 prices = []
 for id in ids:
-    print(" +",products[id-1]['name'],"($%.2f)" % products[id-1]['price'])
+    print(" +",look_up_id(id)['name'],"($%.2f)" % look_up_id(id)['price'])
     prices.append(products[id-1]['price'])
 print("-------------------------------")
 print("Subtotal: $%.2f" % sum(prices))
@@ -79,6 +83,12 @@ print("Thank you for your business! Welcome to BUYME again!")
 #print("OUTSIDE THE LOOP")
 #print(product_ids)
 
+#while True:
+#    product_id = input("...")
+#    if product_id = "DONE":
+#        break
+#    else:
+#        product_ids.append(int(product_id))
 
 ##output the receipt to a text for printing purpose
 #remember to change the file path!!!
